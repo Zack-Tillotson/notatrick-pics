@@ -1,0 +1,18 @@
+<?php
+include_once('php/util.php');
+?>
+<?php
+
+$i = 0;
+foreach(array_shift(getFolderList(substr($_SERVER['REQUEST_URI'], 1)))->content as $item) {
+
+	if(strtolower(array_pop(explode(".", $item->name))) != "jpg") {
+		continue;
+	}
+
+?>
+                <div class="grid_3<?php print ($i % 4 == 0 ? " alpha" : ($i % 4 == 3 ? " omega" : "")); ?>"><a href="<?php print $item->link; ?>"><img src="<?php print $item->getThumbnail()->link; ?>" /></a></div>
+<?php
+	$i++;
+}
+?>

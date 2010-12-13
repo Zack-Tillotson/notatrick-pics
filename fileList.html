@@ -1,0 +1,25 @@
+<?php
+include_once('php/util.php');
+?>
+<table>
+	<thead>
+		<td class="type"></td>
+		<td class="title">File</td>
+		<td class="date">Last Modified</td>
+	</thead>
+<?php
+foreach(array_shift(getFolderList(substr($_SERVER['REQUEST_URI'], 1, -1)))->content as $item) {
+
+	if($item->isFolder && $item->name == "tn") { continue; }
+	if($item->isFolder && $item->name == "picsHandler") { continue; }
+
+?>
+	<tr>
+		<td class="type"><img src="<?php print $item->iconLink; ?>" /></td>
+		<td class="title"><a <?php if($item->getIsNew()) { ?>class="new" <?php } ?> href="<?php print $item->link; ?>"><?php print $item->title; ?></a></td>
+		<td class="date"><?php print date("Y-m-d H:i", $item->changeDate); ?></td>
+	<tr>
+<?php
+}
+?>
+</table>

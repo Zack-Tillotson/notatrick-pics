@@ -1,0 +1,23 @@
+<ul>
+<?php
+
+include_once 'php/util.php';
+
+foreach(getFolderList() as $folder) { 
+
+	if($folder->path[0] == "tn" || (sizeof($folder->path) == 0 && $folder->name == "tn")) { continue; }
+	if($folder->path[0] == "picsHandler" || (sizeof($folder->path) == 0 && $folder->name == "picsHandler")) { continue; }
+
+	$depth = $folder->getDepthOfSamePath($prev); 
+
+?>
+	<li>
+		<div class="item"><a class="d<?php print $depth; ?><?php if($folder->getIsNew()) { ?> new<?php } ?>" href="<?php print $folder->link; ?>"><?php print $folder->title; ?></a></div>
+	</li>
+<?php
+
+	$prev = $folder;
+}
+
+?>
+</ul>

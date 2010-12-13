@@ -1,0 +1,60 @@
+<?php
+	include_once 'php/util.php';
+	ensureValidUrl();
+?>
+<html>
+	<head>
+		<title><?php print $_SERVER['REQUEST_URI']; ?> - NotATrick.com</title>
+		<style type="text/css">
+<?php
+			include 'std.css'; 
+?>
+		</style>
+		<link rel="stylesheet" href="/pics/picsHandler/960.css" />
+		<script type="text/javascript">
+
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-5070668-4']);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+		</script>
+	</head>
+	<body>
+		<div id="title" class="headandfoot">
+<?php
+			include 'header.html'; 		// Page title
+?>
+		</div>
+		<div class="container_16">
+			<div id="content" class="grid_12">
+				<div id="thumbs">
+<?php
+				include 'thumbList.html';	// Image thumbs
+?>
+				</div>
+				<div id="files">
+<?php
+			include 'fileList.html';	// File list
+?>
+				</div>
+			</div>
+			<div id="nav" class="grid_4">
+<?php
+				include 'folderList.html'; 	// Folder tree
+?>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer" class="headandfoot">
+<?php
+			include 'footer.html';		// Stats
+?>
+		</div>
+	</body>
+</html>

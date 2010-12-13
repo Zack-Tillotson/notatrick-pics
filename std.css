@@ -1,0 +1,27 @@
+body { background-color: #057d9f; margin: auto; }
+a { color: white; }
+div.headandfoot { background: #444; margin: 5px 0px 5px 0px; width: 100%; color: white; padding-left: 20%; }
+div#title { font-size: 25px; height: 100px; padding-bottom: 5px;  padding-top: 5px; }
+div#nav { font-size: 17px; background-color: #61b7cf; }
+div#nav li { list-style: none; }
+div#nav div.item { }
+div#nav div.item a:link { color: black; text-decoration: none; }
+div#nav div.item a:visited { color: black; text-decoration: none; }
+div#nav div.item a:hover { text-decoration: underline; font-weight: bold }
+div#nav a.new { font-style: italic; font-weight: bold }
+div#nav a.d0 { padding-left: 0px; padding-right: 60px; }
+div#nav a.d1 { padding-left: 20px; padding-right: 40px; }
+div#nav a.d2 { padding-left: 40px; padding-right: 20px; }
+div#nav a.d3 { padding-left: 60px; padding-right: 0px; }
+div#content { background-color: #61b7cf; }
+div#thumbs img{ width: 160px; height: 120px; }
+div#thumbs div { margin-bottom: 20px; }
+div#files { }
+div#files thead td { border-bottom: solid 1px black; }
+div#files table { width: 600px; }
+div#files td.type { width: 25px; text-align: left; }
+div#files td.title { width: 350px; text-align: left; }
+div#files td.date { width: 200px; text-align: right; }
+div#files a { text-decoration: none; }
+div#files a.new { font-weight: bold; }
+div#footer{ padding-bottom: 10px;}

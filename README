@@ -1,0 +1,5 @@
+The purpose of this project is to easily and nicely display pictures on my web server. 
+
+It uses php and a shell command to create a data structure representing the folder structure of the pictures I want to display, and from this creates a simple web page. It also creates a small thumbnail of the picture since most pictures are much too large for perusing.  For presentation it's very barebones, obviously, it uses the 960 system to do an easy layout. On the backend I'm using dropbox to easily move and synchronize pictures onto the server.
+
+I know this isn't a large project, it was motivated by couple of weekends of trying different picutre distribution tools and finding exactly what I wanted. If I had found something I liked I wouldn't have made it, and now that I've throw it together hopefully I can forget about it while it dutifully works forever ;)

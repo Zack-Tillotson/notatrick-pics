@@ -1,0 +1,19 @@
+&nbsp;
+<div class="left-side">
+	<?php print date("M j, Y g:i a"); ?>
+</div>
+<div class="right-side">
+<?php
+	$imageCount = 0;
+	foreach(array_shift(getFolderList(substr($_SERVER['REQUEST_URI'], 1)))->content as $item) {
+
+		if(strtolower(array_pop(explode(".", $item->name))) != "jpg") {
+			continue;
+		}
+
+		$imageCount++;
+
+	}
+?>
+	Images: <?php print $imageCount; ?>
+</div>
