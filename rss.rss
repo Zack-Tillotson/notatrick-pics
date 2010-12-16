@@ -1,0 +1,35 @@
+<?php
+include_once 'php/util.php';
+?>
+<?xml version="1.0"?>
+<rss version="2.0">
+	<channel>
+		<title>NotATrick.com Pictures</title>
+		<link>notatrick.com/pics/</link>
+		<desc>A place for me to keep my pictures</desc>
+<?php
+
+
+$i = 0;
+foreach(getFileList() as $item) {
+	if($item->getIsImage()) {
+?>
+			<item>
+				<title><?php print $item->title; ?></title>
+				<desc><?php print implode(" -> ", $item->getCatagories()); ?></desc>
+				<pubDate><?php print date(DATE_RSS, $item->changeDate); ?></pubDate>
+				<link><?php print $_SERVER['SERVER_NAME'] . $item->link; ?></link>
+				<guid><?php print $_SERVER['SERVER_NAME'] . $item->link; ?></guid>
+				<media:thumbnail url="<?php print $_SERVER['SERVER_NAME'] . $item->getThumbnail()->link; ?>" height="<?php print $item->getThumbnail()->height; ?>" width="<?php print $item->getThumbnail()->width; ?>" />
+
+
+			</item>
+<?php
+		if($i++ > 19) {
+			 break 1; 
+		}
+	} 
+}
+?>
+	</channel>
+</rss>

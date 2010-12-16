@@ -22,6 +22,26 @@ function ensureValidUrl() {
 
 }
 
+// Get list of all files
+function getFileList() {
+
+	$fileList = array();
+
+	foreach(getFolderList() as $folder) {
+		foreach($folder->content as $item) {
+			if(!$item->isFolder) {
+				$fileList[] = $item;
+			}
+		}
+	}
+
+	usort($fileList, "FuncSort");
+	$fileList = array_reverse($fileList);
+
+	return $fileList;
+
+}
+
 // Will get the full list of folders starting at the base location
 function getFolderList($reqPath = null) {
 
@@ -48,6 +68,8 @@ function getFolderList($reqPath = null) {
 		$fileName = array_reverse(explode("/", substr($fullPath, strlen(HOME_LOC . BASE_LOC))));
 		$fileName = substr($fileName[0], 0, -1);
 
+		if($fileName == "tn/") { continue; } 
+
 		$relPath = array_slice(explode("/", substr($fullPath, strlen(HOME_LOC . BASE_LOC), -1)), 1, -1);
 
 		$conRelPath = $relPath;
@@ -66,7 +88,7 @@ function getFolderList($reqPath = null) {
 				$conName = substr($conName, 0, -1);
 			}
 
-			if($conName == "tn/") { continue; } 
+			if(strcmp($conName, "tn/") == 0) { continue; } 
 
 			$contentList[] = new FolderItem($conName, $conRelPath, $conDate);
 

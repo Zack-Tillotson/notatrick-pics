@@ -1,14 +1,1 @@
-<h1><a href="/"><?php echo $_SERVER['SERVER_NAME']; ?></a>/<a href="/<?php print BASE_LOC; ?>/"><?php print BASE_LOC;?></a><?php 
-/*
-$patha = explode("/", $_SERVER['REQUEST_URI']);
-
-for($i = 0 ; $i < strlen($patha) ; $i++) {
-
-	$piece = $patha[$i];
-	if(strlen(trim($piece)) == 0) { continue; }
-
-	$link = implode(array_slice($patha, 0, $i+1), "/") . "/";
-
-?>/<a href="<?php echo $link; ?>"><?php echo $piece; ?></a><?php
-}
-*/?>/</h1>
+<h1><a href="/"><?php echo $_SERVER['SERVER_NAME']; ?></a>/<a href="/<?php print BASE_LOC; ?>/"><?php print BASE_LOC;?></a></h1>

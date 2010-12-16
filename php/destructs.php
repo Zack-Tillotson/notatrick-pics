@@ -90,6 +90,14 @@ class FolderItem {
 
 	}
 	
+	function getCatagories() {
+		$cats = preg_split("/\\//", $this->link);
+		array_pop($cats);
+		array_shift($cats);
+		return $cats;
+	}
+
+	
 	function getIsNew() {
 		$isNew = false;
 		foreach($this->content as $con) {
@@ -98,6 +106,15 @@ class FolderItem {
 			}
 		}
 		return $isNew || $this->changeDate > strtotime("-7 day");
+	}
+
+	function getIsImage() {
+		$fileType = strtolower(array_pop(preg_split("/\\./", $this->link)));
+		if(strcmp($fileType, "jpg") == 0 || strcmp($fileType, "jpeg") == 0) {
+			return !in_array("tn", $this->path);
+		} else {
+			return false;
+		}
 	}
 	
 	function getDepthOfSamePath(FolderItem $other = null) {
