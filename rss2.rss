@@ -17,7 +17,7 @@ foreach(getFileList() as $item) {
 			<item>
 				<title><?php print $item->title; ?></title>
 				<description>
-					&lt;img src=&quot;<?php print "http://" . $_SERVER['SERVER_NAME'] . $item->getThumbnail()->link; ?>&quot; width=&quot;180&quot; height=&quot;240&quot; alt=&quot;<?php print implode(", ", $item->getCatagories()); ?>&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+					&lt;img src=&quot;<?php print "http://" . $_SERVER['SERVER_NAME'] . $item->getThumbnail()->link; ?>&quot; width=&quot;200&quot; height=&quot;150&quot; alt=&quot;<?php print implode(", ", $item->getCatagories()); ?>&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 				</description>
 				<pubDate><?php print date(DATE_RSS, $item->changeDate); ?></pubDate>
 				<link><?php print "http://" . $_SERVER['SERVER_NAME'] . $item->link; ?></link>
